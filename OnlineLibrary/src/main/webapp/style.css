@@ -1,0 +1,54 @@
+body {
+    background: #ebe7df;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #242424;
+    height: 48px;
+    width: auto;
+}
+
+footer {
+    background: #2e2e2e;
+    height: 48px;
+    width: auto;
+}
+
+a {
+    font-family: Arial;
+    font-size: 12pt;
+    color: #cccccc;
+}
+
+.outline {
+    padding: 15px;
+    display: block;
+    float: right;
+}
+
+a#main {
+    float: left;
+}
+
+.header {
+    border-left: 1px solid #383838;
+    border-right: 1px solid #383838;
+}
+
+.panel {;
+    margin: 0;
+    height: 48px;
+    width: auto;
+    background: #cdcdcd;
+}
+
+div {
+    padding: 15px;
+    float: left;
+}
+
+#submit {
+    float: right;
+}
