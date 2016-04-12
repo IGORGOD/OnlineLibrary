@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <%@ include file="/JSP/header.jsp" %>
 	<form method="POST" action="signin">
 		<table align="center">
 			<tr>
@@ -23,5 +24,6 @@
 			</tr>
 		</table>
 	</form>
+    <%@ include file="/JSP/footer.jsp" %>
 </body>
 </html>

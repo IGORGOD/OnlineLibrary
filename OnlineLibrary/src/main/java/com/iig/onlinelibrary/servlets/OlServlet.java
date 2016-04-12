@@ -21,6 +21,6 @@ public class OlServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		getServletContext().getRequestDispatcher("/hello.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/JSP/hello.jsp").forward(request, response);
 	}
 }
