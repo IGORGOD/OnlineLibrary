@@ -16,6 +16,12 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+/**
+ * Entity class of Groups Table(groups_tbl) from DB
+ * 
+ * @author Ihor I Great
+ *
+ */
 @Entity
 @Table(name = "groups_tbl")
 @NamedQuery(name = "Group.getAll", query = "SELECT g FROM Group g")
@@ -65,10 +71,6 @@ public class Group implements Serializable {
 
 	public Set<User> getUsers() {
 		return users;
-	}
-
-	public void setUsers(Set<User> users) {
-		this.users = users;
 	}
 
 	public String toString() {

@@ -15,7 +15,11 @@ import com.iig.onlinelibrary.crud.Service;
 import com.iig.onlinelibrary.model.User;
 
 /**
- * Servlet implementation class LoginServlet
+ * Servlet implementation class LoginServlet. Servlet that serves sign in page
+ * and dispatches login.jsp and provides login function.
+ * 
+ * @author Ihor I Great
+ *
  */
 @WebServlet("/signin")
 public class LoginServlet extends HttpServlet {

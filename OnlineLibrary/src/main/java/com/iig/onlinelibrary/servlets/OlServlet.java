@@ -9,7 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class OlServlet
+ * Servlet implementation class OlServlet. Servlet that serves hello page and
+ * dispatches hello.jsp
+ * 
+ * @author Ihor I Great
+ *
  */
 @WebServlet("/hello")
 public class OlServlet extends HttpServlet {

@@ -10,6 +10,12 @@ import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+/**
+ * Entity class of Authors Table(au_tbl) from DB
+ * 
+ * @author Ihor I Great
+ *
+ */
 @Entity
 @Table(name = "au_tbl")
 @NamedQuery(name = "Author.getAll", query = "SELECT a FROM Author a")
@@ -53,6 +59,11 @@ public class Author implements Serializable {
 		this.id = id;
 	}
 
+	/**
+	 * Method that combines Name and Surname of author
+	 * 
+	 * @return combined string of author's Name and Surname
+	 */
 	public String getFullName() {
 		return String.format("%s %s", name, surname);
 	}

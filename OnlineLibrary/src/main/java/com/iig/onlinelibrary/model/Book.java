@@ -10,6 +10,12 @@ import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+/**
+ * Entity class of Books Table(books_tbl) from DB
+ * 
+ * @author Ihor I Great
+ *
+ */
 @Entity
 @Table(name = "books_tbl")
 @NamedQuery(name = "Book.getAll", query = "SELECT b FROM Book b")

@@ -13,6 +13,12 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+/**
+ * Entity class of Rights Table(rights_tbl) from DB
+ * 
+ * @author Ihor I Great
+ *
+ */
 @Entity
 @Table(name = "rights_tbl")
 @NamedQuery(name = "Rights.getAll", query = "SELECT r FROM Rights r")
@@ -116,10 +122,6 @@ public class Rights implements Serializable {
 
 	public Set<Group> getGroups() {
 		return groups;
-	}
-
-	public void setGroups(Set<Group> groups) {
-		this.groups = groups;
 	}
 
 	public String toString() {

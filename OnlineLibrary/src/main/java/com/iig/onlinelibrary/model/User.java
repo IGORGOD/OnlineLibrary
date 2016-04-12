@@ -14,6 +14,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+/**
+ * Entity class of Users Table(users_tbl) from DB
+ * 
+ * @author Ihor I Great
+ *
+ */
 @Entity
 @Table(name = "users_tbl")
 @NamedQuery(name = "User.getAll", query = "SELECT u FROM User u")
@@ -69,6 +75,13 @@ public class User implements Serializable {
 		this.pswdHex = pswdHex;
 	}
 
+	/**
+	 * Method that checked is this User equal to given User. Used in login step.
+	 * 
+	 * @param ru
+	 *            User object that must be checked with this
+	 * @return result of check: true - if equals, false - if not equals
+	 */
 	public boolean isUser(User ru) {
 		return (ru.name.equals(name) && ru.pswdHex.equals(pswdHex));
 	}
