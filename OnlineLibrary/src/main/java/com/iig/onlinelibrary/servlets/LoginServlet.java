@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/JSP/login.jsp").forward(request, response);
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class LoginServlet extends HttpServlet {
 				}
 			}
 		}
-		getServletContext().getRequestDispatcher("/loginerror.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/JSP/loginerror.jsp").forward(request, response);
 	}
 
 }
