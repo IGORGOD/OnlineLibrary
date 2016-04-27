@@ -14,11 +14,10 @@
   	<display-name>LoginServlet</display-name>
   	<servlet-class>com.iig.onlinelibrary.servlets.LoginServlet</servlet-class>
   </servlet>
-  <!--- <login-config>
-  	<auth-method>FORM</auth-method>
-  	<form-login-config>
-  		<form-login-page>/login.jsp</form-login-page>
-  		<form-error-page>/loginerror.jsp</form-error-page>
-  	</form-login-config>
-  </login-config> -->
+  <servlet>
+  	<servlet-name>RegisterServlet</servlet-name>
+  	<display-name>RegisterServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.iig.onlinelibrary.servlets.RegisterServlet</servlet-class>
+  </servlet>
 </web-app>
