@@ -13,6 +13,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.iig.onlinelibrary.crud.Service;
+
 /**
  * Entity class of Rights Table(rights_tbl) from DB
  * 
@@ -23,6 +25,8 @@ import javax.persistence.Table;
 @Table(name = "rights_tbl")
 @NamedQuery(name = "Rights.getAll", query = "SELECT r FROM Rights r")
 public class Rights implements Serializable {
+
+	public static final Service<Rights> SERVICE = new Service<Rights>(new Rights());
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
