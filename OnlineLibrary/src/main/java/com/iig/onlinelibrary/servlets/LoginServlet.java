@@ -8,18 +8,17 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.codec.digest.DigestUtils;
 
-import com.iig.onlinelibrary.crud.Service;
 import com.iig.onlinelibrary.model.User;
 
 /**
  * Servlet implementation class LoginServlet. Servlet that serves sign in page
- * and dispatches login.jsp and provides login function.
+ * that provides login function.
  * 
  * @author Ihor I Great
- *
  */
 @WebServlet("/signin")
 public class LoginServlet extends HttpServlet {
@@ -40,14 +39,16 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Service<User> s = new Service<User>(new User());
-		List<User> users = s.getAll();
+		HttpSession session = request.getSession();
+		List<User> users = User.SERVICE.getAll();
 		User user = new User();
 		user.setName(request.getParameter("login"));
 		user.setHexPassword(DigestUtils.md5Hex(request.getParameter("password")));
 		if (!users.isEmpty()) {
 			for (User usr : users) {
-				if (usr.isUser(usr)) {
+				if (usr.isUser(user)) {
+					session.setAttribute("user", usr);
+					session.setAttribute("isLogin", true);
 					getServletContext().getRequestDispatcher("/").forward(request, response);
 					break;
 				}
