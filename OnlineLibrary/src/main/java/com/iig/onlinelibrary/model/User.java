@@ -14,8 +14,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
-import com.iig.onlinelibrary.crud.Service;
-
 /**
  * Entity class of Users Table(users_tbl) from DB
  * 
@@ -26,8 +24,6 @@ import com.iig.onlinelibrary.crud.Service;
 @Table(name = "users_tbl")
 @NamedQuery(name = "User.getAll", query = "SELECT u FROM User u")
 public class User implements Serializable {
-
-	public static final Service<User> SERVICE = new Service<User>(new User());
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -45,7 +41,6 @@ public class User implements Serializable {
 	private Group group;
 
 	public User() {
-		group = Group.SERVICE.read(2);
 	}
 
 	public int getId() {

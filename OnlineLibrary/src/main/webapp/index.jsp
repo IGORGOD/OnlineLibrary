@@ -2,7 +2,7 @@
 
 <head>
     <title>Online Library</title>
-    <link rel="stylesheet" href="JSP/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>

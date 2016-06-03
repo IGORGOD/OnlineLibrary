@@ -2,10 +2,7 @@ package com.iig.onlinelibrary.test;
 
 import java.util.List;
 
-import org.apache.commons.codec.digest.DigestUtils;
-
 import com.iig.onlinelibrary.crud.Service;
-import com.iig.onlinelibrary.model.Group;
 import com.iig.onlinelibrary.model.User;
 
 public class TestDB {
@@ -31,24 +28,24 @@ public class TestDB {
 
 	private static void addUsers() {
 
-		Service<Group> gService = new Service<Group>(new Group());
+		// User r3 = new User();
+		// r3.setName("KittoRyu");
+		// r3.setHexPassword(DigestUtils.md5Hex("TT022299"));
+		// r3.setGroup(gService.read(1));
 
-		User r3 = new User();
-		r3.setName("KittoRyu");
-		r3.setHexPassword(DigestUtils.md5Hex("TT022299"));
-		r3.setGroup(gService.read(1));
+		// User r1 = new User();
+		// r1.setName("SoUser");
+		// r1.setHexPassword(DigestUtils.md5Hex("muchsecurity"));
+		// r1.setGroup(gService.read(2));
 
-		User r1 = new User();
-		r1.setName("SoUser");
-		r1.setHexPassword(DigestUtils.md5Hex("muchsecurity"));
-		r1.setGroup(gService.read(2));
+		// Service<User> uService = new Service<User>(new User());
+		//
+		// uService.create(r3);
+		// uService.create(r1);
 
-		Service<User> uService = new Service<User>(new User());
+		List<User> rs = Service.getUserService().getAll();
 
-		uService.create(r3);
-		uService.create(r1);
-
-		List<User> rs = uService.getAll();
+		// List<User> rs = uService.getAll();
 
 		for (User c : rs) {
 			System.out.println(c);
