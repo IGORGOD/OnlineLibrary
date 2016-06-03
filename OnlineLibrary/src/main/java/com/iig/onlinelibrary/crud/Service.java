@@ -6,10 +6,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
-import com.iig.onlinelibrary.model.Group;
-import com.iig.onlinelibrary.model.Rights;
-import com.iig.onlinelibrary.model.User;
-
 /**
  * Class that realized CRUDS interface for entities
  * 
@@ -20,45 +16,11 @@ import com.iig.onlinelibrary.model.User;
  */
 public class Service<T> {
 
-	private static Service<User> userService;
-
-	private static Service<Group> groupService;
-
-	private static Service<Rights> rightsService;
-
-	private static boolean isInit = false;
-
 	/**
 	 * Static field of entity manager that realized connection with DB that
 	 * described in persistence.xml
 	 */
 	private static EntityManager em = Persistence.createEntityManagerFactory("IIG").createEntityManager();
-
-	public static void init() {
-		userService = new Service<User>(new User());
-		groupService = new Service<Group>(new Group());
-		rightsService = new Service<Rights>(new Rights());
-		isInit = true;
-	}
-
-	public static Service<User> getUserService() {
-		if (!isInit)
-			init();
-		return userService;
-	}
-
-	public static Service<Group> getGroupService() {
-		if (!isInit)
-			init();
-		return groupService;
-	}
-
-	public static Service<Rights> getRightsService() {
-		if (!isInit)
-			init();
-		return rightsService;
-	}
-
 	/**
 	 * Field of entity class for work with right DB table
 	 */
@@ -70,7 +32,7 @@ public class Service<T> {
 	 * @param entity
 	 *            Entity class
 	 */
-	private Service(T entity) {
+	public Service(T entity) {
 		this.entity = entity;
 	}
 

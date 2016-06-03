@@ -12,7 +12,6 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.codec.digest.DigestUtils;
 
-import com.iig.onlinelibrary.crud.Service;
 import com.iig.onlinelibrary.model.User;
 
 /**
@@ -45,7 +44,7 @@ public class RegisterServlet extends HttpServlet {
 			request.setAttribute("password", request.getAttribute("password1"));
 			request.removeAttribute("password1");
 			request.removeAttribute("password2");
-			List<User> users = Service.getUserService().getAll();
+			List<User> users = User.SERVICE.getAll();
 			User user = new User();
 			user.setName(request.getParameter("login"));
 			if (!users.isEmpty()) {
@@ -58,7 +57,7 @@ public class RegisterServlet extends HttpServlet {
 				}
 			}
 			user.setHexPassword(DigestUtils.md5Hex(request.getParameter("password")));
-			Service.getUserService().create(user);
+			User.SERVICE.create(user);
 			getServletContext().getRequestDispatcher("/signin").forward(request, response);
 		}
 		session.setAttribute("reason", "Wrong fields values!");

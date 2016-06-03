@@ -13,7 +13,7 @@
 		<table align="center">
 			<tr>
 				<th>Login:</th>
-				<td><input type="text" name="login"></td>
+				<td><input type="text" name="username"></td>
 			</tr>
 			<tr>
 				<th>Password:</th>

@@ -8,10 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.codec.digest.DigestUtils;
 
-import com.iig.onlinelibrary.crud.Service;
 import com.iig.onlinelibrary.model.User;
 
 /**
@@ -39,24 +39,22 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		List<User> users = Service.getUserService().getAll();
+		HttpSession session = request.getSession();
+		List<User> users = User.SERVICE.getAll();
 		User user = new User();
 		user.setName(request.getParameter("login"));
 		user.setHexPassword(DigestUtils.md5Hex(request.getParameter("password")));
 		if (!users.isEmpty()) {
 			for (User usr : users) {
 				if (usr.isUser(user)) {
-					request.setAttribute("user", usr);
-					request.setAttribute("isLogin", true);
+					session.setAttribute("user", usr);
+					session.setAttribute("isLogin", true);
+					getServletContext().getRequestDispatcher("/").forward(request, response);
 					break;
 				}
 			}
 		}
-		System.out.println(request.getAttribute("isLogin"));
-		if (!request.getAttribute("isLogin").toString().equals("true"))
-			getServletContext().getRequestDispatcher("/JSP/loginerror.jsp").forward(request, response);
-		else
-			getServletContext().getRequestDispatcher("/").forward(request, response);
+		getServletContext().getRequestDispatcher("/JSP/loginerror.jsp").forward(request, response);
 	}
 
 }
